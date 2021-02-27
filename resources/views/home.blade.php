@@ -9,8 +9,17 @@
 </head>
 
 <body>
-    All Articles:
+    <h3>
+        All Articles:
+    </h3>
     @foreach ($articles as $article)
+    <p>{{ $article->title }}</p>
+    @endforeach
+
+    <h3>
+        Top 5 articles
+    </h3>
+    @foreach ($top_articles as $article)
     <p>{{ $article->title }}</p>
     @endforeach
 

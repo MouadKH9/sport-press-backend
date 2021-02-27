@@ -10,6 +10,9 @@ class ArticleController extends Controller
     public function home()
     {
         $all_articles = Article::all();
-        return view('home', ['articles' => $all_articles]);
+        $top_articles = Article::with('views')->get()->sort(function ($a, $b) {
+            return count($b->views()->get()) - count($a->views()->get());
+        });
+        return view('home', ['articles' => $all_articles, 'top_articles' => $top_articles]);
     }
 }
