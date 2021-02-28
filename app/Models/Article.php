@@ -17,6 +17,8 @@ class Article extends Model
         'category_id',
     ];
 
+    protected $appends = array('views');
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -25,5 +27,10 @@ class Article extends Model
     public function views()
     {
         return $this->hasMany(View::class);
+    }
+
+    public function getViewCountAttribute()
+    {
+        return count($this->views()->get());
     }
 }
