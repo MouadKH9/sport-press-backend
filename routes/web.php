@@ -18,3 +18,6 @@ use App\Http\Controllers\ArticleController;
 Route::get('/', [ArticleController::class, 'home']);
 
 Route::get('/detail/{id}', [ArticleController::class, 'articleDetail']);
+
+
+Route::get('/category/{name}', [CategoryController::class, 'categoryPage']);
