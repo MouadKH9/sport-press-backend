@@ -11,7 +11,7 @@
             }
         </style>
     </head>
-    <body class="article">
+    <body class="Category">
             <div class="container">
           Category {{$category->name}} Articles:
           {{$articles->count()}} 
@@ -20,5 +20,13 @@
             <p>{{ $art->text }}</p>
             @endforeach
             </div>
+
+            <div class="all-cats">
+                All categories :
+                @foreach ($categories as $cat)
+                <p>{{ $cat->name }}</p>
+                @endforeach
+            </div>
+
     </body>
 </html>

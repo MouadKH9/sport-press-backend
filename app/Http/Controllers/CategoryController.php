@@ -15,8 +15,18 @@ class CategoryController extends Controller
 
         //$articles = $category->articles();
         
-        $articles =DB::table('articles')->where('category_id', $category->id)->get();
+        $articles =DB::table('articles')->where('category_id', $category->id)
+                                        ->orderBy('updated_at')
+                                        ->get();
 
-        return view('categoryArticles',['category' => $category ,'articles' => $articles]);
+        return view('categoryArticles',['category' => $category ,'articles' => $articles,'categories' => $this->allCategories()]);
     }
+
+    public function allCategories()
+    {
+        return Category::orderBy('name')->get();
+    }
+
+
+
 }
