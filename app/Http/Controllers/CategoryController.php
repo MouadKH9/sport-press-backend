@@ -35,9 +35,10 @@ class CategoryController extends Controller
 
         //$articles = $category->articles();
         
-        $articles =DB::table('articles')->where('category_id', $category->id)
+        $articles =Article::where('category_id', $category->id)
                                         ->orderBy('updated_at')
-                                        ->get();
+                                        ->paginate(1);
+        
         
         return ['articles' => $articles, 'category' => $category];
     }
