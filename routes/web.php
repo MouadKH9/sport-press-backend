@@ -19,5 +19,5 @@ Route::get('/', [ArticleController::class, 'home']);
 
 Route::get('/detail/{id}', [ArticleController::class, 'articleDetail']);
 
-
+Route::get('/front', [CategoryController::class, 'front']);
 Route::get('/category/{name}', [CategoryController::class, 'categoryPage']);
