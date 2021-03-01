@@ -32,7 +32,12 @@ class ArticleController extends Controller
             return $b->view_count - $a->view_count;
         });
 
-        return view('home', ['articles' => $all_articles, 'top_articles' => $top_articles]);
+        return view('home', [
+            'articles' => $all_articles,
+            'top_articles' => $top_articles,
+            'categories' => app(CategoryController::class)->allCategories(),
+            'lastArticles' => $this->getLastArticles()
+        ]);
     }
 
 
@@ -51,5 +56,10 @@ class ArticleController extends Controller
             'article' => $article,
             'articles' => $articles
         ]);
+    }
+
+    public function getLastArticles()
+    {
+        return Article::orderBy('updated_at')->limit(5)->get();
     }
 }

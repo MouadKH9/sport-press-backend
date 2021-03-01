@@ -29,9 +29,26 @@
     <h1 class="my-5 text-xl">
         Top 5 articles
     </h1>
+
     @foreach ($top_articles as $article)
     <p>{{ $article->title }}</p>
     @endforeach
+
+
+    <h1>All categories</h1>
+        <ul>
+            @foreach ($categories as $category)
+            <li>{{$category->name}}</li>
+            @endforeach
+        </ul>
+
+    <h1>Last 5 articles (by date)</h1>
+        <ul>
+            @foreach ($lastArticles as $art)
+            <li>{{$art->title}}</li>
+            @endforeach
+        </ul>
+
 
 </body>
 
