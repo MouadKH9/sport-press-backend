@@ -20,7 +20,7 @@
         <a href="?page={{$articles->currentPage()}}&sort=views&dir=DESC">Popularite</a>
     </div>
     @foreach ($articles as $article)
-    <p>{{ $article->title }} - Views {{$article->view_count}}</p>
+    <a href="{{url('/detail/' . $article->id)}}">{{ $article->title }} - Views {{$article->view_count}}</a>
     @endforeach
 
     {{ $articles->appends(request()->input())->links() }}

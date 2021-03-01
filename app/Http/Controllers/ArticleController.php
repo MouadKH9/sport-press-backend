@@ -37,9 +37,9 @@ class ArticleController extends Controller
     public function articleDetail($id)
     {
         //details of article
-        $article = Article::where('id', $id)->get();
+        $article = Article::findOrFail($id);
         //suggestion
-        $articles = Article::where('category_id', $article[0]->category_id)->where('id', '!=', $id)->get();
+        $articles = Article::where('category_id', $article->category_id)->where('id', '!=', $id)->get();
 
         return view('articleDetail', [
             'article' => $article,
