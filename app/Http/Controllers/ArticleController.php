@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Article;
+use App\Models\View;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -34,8 +36,12 @@ class ArticleController extends Controller
     }
 
 
-    public function articleDetail($id)
+    public function articleDetail(Request $request, $id)
     {
+        // Save the view
+        View::insert(
+            ['ip' => 'X', 'article_id' => $id, 'created_at' => Carbon::now()]
+        );
         //details of article
         $article = Article::findOrFail($id);
         //suggestion
