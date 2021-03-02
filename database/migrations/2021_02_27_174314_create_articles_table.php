@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string("image");
             $table->longText("text");
             $table->string("author");
-            $table->foreignId("category_id")->constrained();
+            $table->foreignId("category_id")->references("id")->on("article_categories");
             $table->timestamps();
         });
     }
