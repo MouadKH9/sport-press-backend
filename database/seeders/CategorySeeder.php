@@ -14,22 +14,22 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
+        DB::table('article_categories')->insert([
             'name' => "Football"
         ]);
-        DB::table('categories')->insert([
+        DB::table('article_categories')->insert([
             'name' => "Basketball"
         ]);
-        DB::table('categories')->insert([
+        DB::table('article_categories')->insert([
             'name' => "Tennis"
         ]);
-        DB::table('categories')->insert([
+        DB::table('article_categories')->insert([
             'name' => "Volleyball"
         ]);
-        DB::table('categories')->insert([
+        DB::table('article_categories')->insert([
             'name' => "Sports Olympiques"
         ]);
-        DB::table('categories')->insert([
+        DB::table('article_categories')->insert([
             'name' => "Autres"
         ]);
     }
